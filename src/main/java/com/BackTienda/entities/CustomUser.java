@@ -1,5 +1,10 @@
 package com.BackTienda.entities;
 
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,7 +15,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
-public class CustomUser {
+public class CustomUser implements UserDetails{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,5 +64,10 @@ public class CustomUser {
 	}
 	public Long getId() {
 		return id;
+	}
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
