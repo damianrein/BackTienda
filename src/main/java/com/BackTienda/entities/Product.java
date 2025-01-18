@@ -1,6 +1,7 @@
 package com.BackTienda.entities;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +22,7 @@ public class Product {
 	@NotBlank
 	@Min(value = 0, message = "Price cannot be less than zero")
 	private BigDecimal price;
-	private Comment comment;
+	private List<Comment> comment;
 	private String urlPhoto;
 	@Min(value = 0, message = "Stock cannot be less than zero")
 	private Short stock;
@@ -46,11 +47,14 @@ public class Product {
 	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	public Comment getComment() {
+	public List<Comment> getComments() {
 		return comment;
 	}
-	public void setComment(Comment comment) {
+	public void setComments(List<Comment> comment) {
 		this.comment = comment;
+	}
+	public void addCommnt(Comment comment) {
+		this.comment.add(comment);
 	}
 	public String getUrlPhoto() {
 		return urlPhoto;
