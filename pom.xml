@@ -63,6 +63,13 @@
     		<version>0.11.5</version>
     		<scope>runtime</scope>
 		</dependency>
+		<!-- METODOS DE PAGO-->
+		<dependency>
+    		<groupId>com.mercadopago</groupId>
+    		<artifactId>dx-java</artifactId>
+    		<version>1.8.0</version>
+		</dependency>
+		<!-- TEST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
