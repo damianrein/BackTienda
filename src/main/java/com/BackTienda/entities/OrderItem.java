@@ -1,12 +1,10 @@
 package com.BackTienda.entities;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity
-public class CartItem {
+public class OrderItem {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,15 +12,31 @@ public class CartItem {
 	private Product product;
 	private Short quantity;
 	
-	public Long getId() {
-		return id;
+	public OrderItem() {}
+	
+	public OrderItem(Long id, Product product, Short quantity) {
+		this.id = id;
+		this.product = product;
+		this.quantity = quantity;
 	}
+
 	public Product getProduct() {
 		return product;
 	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
 	public Short getQuantity() {
 		return quantity;
 	}
-	
-	
+
+	public void setQuantity(Short quantity) {
+		this.quantity = quantity;
+	}
+
+	public Long getId() {
+		return id;
+	}
 }

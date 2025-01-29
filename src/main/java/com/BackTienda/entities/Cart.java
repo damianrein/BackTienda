@@ -17,20 +17,26 @@ public class Cart {
 	private Long id;
 	@OneToOne
 	private CustomUser user;
-	private List<Product> products;
+	private List<CartItem> items;
 	private BigDecimal amount;
 	
-	public List<Product> getProducts() {
-		return products;
+	public List<CartItem> getProducts() {
+		return items;
 	}
-	public void setProducts(List<Product> products) {
-		this.products = products;
+	public void setProducts(List<CartItem> products) {
+		this.items = products;
 	}
-	public void addProductToList(Product p) {
-		this.products.add(p);
+	public void addProductToList(CartItem p) {
+		this.items.add(p);
 	}
-	public void removeProductOfList(Product p) {
-		this.products.remove(p);
+	public void removeProductOfList(CartItem p) {
+		this.items.remove(p);
+	}
+	public CustomUser getUser() {
+		return user;
+	}
+	public void setUser(CustomUser user) {
+		this.user = user;
 	}
 	public BigDecimal getAmount() {
 		return amount;
