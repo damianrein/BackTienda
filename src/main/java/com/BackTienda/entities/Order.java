@@ -34,4 +34,32 @@ public class Order {
 		this.items = items;
 		this.total = total;
 	}
+
+	public CustomUser getUser() {
+		return user;
+	}
+	public void setUser(CustomUser user) {
+		this.user = user;
+	}
+	public List<OrderItem> getItems() {
+		return items;
+	}
+	public void setItems(List<OrderItem> items) {
+		this.items = items;
+	}
+	public void addItem(OrderItem item) {
+		this.items.add(item);
+	}
+	public void removeItem(OrderItem item) {
+		this.items.remove(item);
+	}
+	public BigDecimal getTotal() {
+		return total;
+	}
+	public void setTotal(BigDecimal total) {
+		this.total = total;
+	}
+	public Long getId() {
+		return id;
+	}
 }

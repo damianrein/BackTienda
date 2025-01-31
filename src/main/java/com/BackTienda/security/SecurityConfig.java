@@ -23,6 +23,11 @@ public class SecurityConfig {
 	@Autowired
 	private ApplicationConfig appConfig;
 	
+	private String[] whiteList = {"/swagger-ui/**",
+			"/v3/api-docs/**",
+			"/auth/**",
+			"/v1/all"};
+	
 	public SecurityConfig(@Autowired JwtAuthenticationFilter jwtFilter,@Autowired ApplicationConfig appConfig) {
 		this.jwtFilter = jwtFilter;
 		this.appConfig = appConfig;
@@ -32,7 +37,7 @@ public class SecurityConfig {
 	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		return	http.csrf(c->c.disable())
 		.authorizeHttpRequests(auth->{
-			auth.requestMatchers("/swagger-ui/**","/v3/api-docs/**","/auth/**").permitAll();
+			auth.requestMatchers(whiteList).permitAll();
 			auth.anyRequest().authenticated();
 		})
 		.sessionManagement(s->s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -6,4 +6,5 @@ import com.BackTienda.entities.Product;
 
 public interface IProductRepository extends JpaRepository<Product, Long> {
 
+	
 }
