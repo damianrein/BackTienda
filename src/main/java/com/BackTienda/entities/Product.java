@@ -4,9 +4,11 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 
@@ -22,6 +24,7 @@ public class Product {
 	@NotBlank
 	@Min(value = 0, message = "Price cannot be less than zero")
 	private BigDecimal price;
+	@OneToMany(fetch = FetchType.LAZY)
 	private List<Comment> comment;
 	private String urlPhoto;
 	@Min(value = 0, message = "Stock cannot be less than zero")

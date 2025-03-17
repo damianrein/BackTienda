@@ -23,15 +23,20 @@ public class Comment {
 	@NotBlank
 	private CustomUser user;
 	@NotBlank
+	private Long productId;
+	@NotBlank
 	private String message;
 	@NotBlank
 	@Enumerated(EnumType.ORDINAL)
 	private Valoration valoration;
 	
-	public Comment(Long id, LocalDate date, CustomUser user, String message, Valoration valoration) {
+	public Comment() {}
+	
+	public Comment(Long id, LocalDate date, CustomUser user, Long productId, String message, Valoration valoration) {
 		this.id = id;
 		this.date = date;
 		this.user = user;
+		this.productId = productId;
 		this.message = message;
 		this.valoration = valoration;
 	}
@@ -46,6 +51,10 @@ public class Comment {
 
 	public CustomUser getUser() {
 		return user;
+	}
+	
+	public Long getProductId() {
+		return productId;
 	}
 
 	public String getMessage() {
